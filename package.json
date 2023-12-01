@@ -1,0 +1,27 @@
+{
+  "name": "advent-of-code-2023",
+  "version": "1.0.0",
+  "description": "My attempt at Advent of Code 2023",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justindhillon/advent-of-code-2023.git"
+  },
+  "author": "Justin Dhillon",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/justindhillon/advent-of-code-2023/issues"
+  },
+  "homepage": "https://github.com/justindhillon/advent-of-code-2023#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "node": "^21.2.0",
+    "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.2"
+  }
+}
