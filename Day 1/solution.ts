@@ -16,22 +16,18 @@ function extractNumbers (chars: string[]): number[] {
     return nums;
 }
 
-function addFirstLast (strs: string[]): number[] {
-    const numbers:number[] = [];
+function addNumbers (strs: string[]): number {
+    let answer:number = 0;
     for (const str of strs) {
         const chars:string[] = str.split('');
         const nums:number[] = extractNumbers(chars);
-        numbers.push(Number(String(nums[0]) + String(nums[nums.length - 1])));
+        const number = String(nums[0]) + String(nums[nums.length - 1]) // 1 + 2 = 12
+        answer += Number(number);
     }
-    return numbers;
+    return answer;
 }
 
 const strs:string[] = turnFileIntoArray("./input");
-const nums:number[] = addFirstLast(strs);
-
-let answer:number = 0;
-for (const num of nums) {
-    answer += num;
-}
+const answer:number = addNumbers(strs);
 
 console.log(answer);
