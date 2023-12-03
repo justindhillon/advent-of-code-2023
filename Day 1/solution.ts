@@ -1,33 +1,32 @@
 const fs = require('fs');
 
-function turnFileIntoArray (path: string): string[] {
-    const data:string = fs.readFileSync(path, 'utf8');
-    const array:string[] = data.split('\n');
-    return array;
+let data = fs.readFileSync('input.txt', 'utf8');
+let strs:string[] = data.split('\n');
+let regex = /\d/g; // Gets all digets
+
+let answer = 0;
+for (const str of strs) {
+    const nums:string[] = str.match(regex);
+    const add:string = nums[0] + nums[nums.length - 1]
+    answer += Number(add);
 }
 
-function extractNumbers (chars: string[]): number[] {
-    let nums:number[] = []
-    for (const char of chars) {
-        if (!isNaN(Number(char))) {
-            nums.push(Number(char));
-        }
-    }
-    return nums;
+console.log("Part 1:", answer);
+
+/* Part 2 */
+
+let part2 = data.replaceAll("one", "o1ne").replaceAll("two", "t2wo").replaceAll("three", "t3hree")
+.replaceAll("four", "f4our").replaceAll("five", "f5ive").replaceAll("six", "s6ix")
+.replaceAll("seven", "s7even").replaceAll("eight", "e8ight").replaceAll("nine", "n9ine");
+
+strs = part2.split('\n');
+regex = /\d/g; // Gets all digets
+
+answer = 0;
+for (const str of strs) {
+    const nums:string[] = str.match(regex);
+    const add:string = nums[0] + nums[nums.length - 1]
+    answer += Number(add);
 }
 
-function addNumbers (strs: string[]): number {
-    let answer:number = 0;
-    for (const str of strs) {
-        const chars:string[] = str.split('');
-        const nums:number[] = extractNumbers(chars);
-        const number = String(nums[0]) + String(nums[nums.length - 1]) // 1 + 2 = 12
-        answer += Number(number);
-    }
-    return answer;
-}
-
-const strs:string[] = turnFileIntoArray("./input");
-const answer:number = addNumbers(strs);
-
-console.log(answer);
+console.log("Part 2:", answer);
