@@ -6,7 +6,7 @@ let regex = /\d/g; // Gets all digets
 
 let answer = 0;
 for (const str of strs) {
-    const nums:string[] = str.match(regex);
+    const nums:string[] = str.match(regex) || [];
     const add:string = nums[0] + nums[nums.length - 1]
     answer += Number(add);
 }
@@ -24,7 +24,7 @@ regex = /\d/g; // Gets all digets
 
 answer = 0;
 for (const str of strs) {
-    const nums:string[] = str.match(regex);
+    const nums:string[] = str.match(regex) || [];
     const add:string = nums[0] + nums[nums.length - 1]
     answer += Number(add);
 }
