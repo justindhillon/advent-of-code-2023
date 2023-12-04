@@ -33,7 +33,7 @@ This repository contains my solutions for the [Advent of Code 2023](https://adve
    ```
 5. Run the code:
    ```bash
-   ts-node solution.ts
+   npx ts-node solution.ts
    ```
 
 ## Structure
