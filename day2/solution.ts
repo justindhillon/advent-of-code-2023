@@ -20,4 +20,35 @@ for (let i = 0; i < games.length; i++) {
     if (isPossibleGame(words)) answer += i + 1
 }
 
-console.log(answer);
+console.log("Part 1:", answer);
+
+/* Part 2 */
+function powerOfGame(words: string[]): number {
+    let red:number = 0;
+    let blue:number = 0;
+    let green:number = 0;
+    for (let i = 0; i < words.length; i++) {
+        let word:string = words[i].slice(0, -1);
+        if (word === "red") {
+            if (red < Number(words[i - 1])) red = Number(words[i - 1]);
+            continue;
+        }
+        if (word === "blue") {
+            if (blue < Number(words[i - 1])) blue = Number(words[i - 1]);
+            continue;
+        }
+        if (word === "green") {
+            if (green < Number(words[i - 1])) green = Number(words[i - 1]);
+        }
+    }
+
+    return red * blue * green;
+}
+
+answer = 0;
+for (let i = 0; i < games.length; i++) {
+    const words:string[] = (games[i] + ';').split(' ');
+    answer += powerOfGame(words);
+}
+
+console.log("Part 2:", answer);
